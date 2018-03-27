@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="spiderjd.mapper.SpiderMapper"><!-- 命名空间与后台mapper接口对应(Dao层要调同名方法) -->
+	<select id="queryAll" resultType="SpiderGoodsInfo">
+		select * from spider_goods_info t
+	</select>
+    <insert id="insert" parameterType="SpiderGoodsInfo" useGeneratedKeys="true" keyProperty="dbid">
+    	insert into spider_goods_info (goods_id, goods_name, goods_price, img_url) values(#{goodsId}, #{goodsName}, #{goodsPrice}, #{imgUrl})
+    </insert>
+    <delete id="delete" parameterType="java.lang.Long">
+    	delete from spider_goods_info t where t.dbid=#{dbid}
+    </delete>
+    
+</mapper>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.springcloud.eureka.service.CustomerService"><!-- 命名空间与后台mapper接口对应(Dao层要调同名方法) -->
+	<select id="query" resultType="Customer">
+		select * from basic_customer t
+	</select>
+    <select id="getById" parameterType="java.lang.Long" resultType="Customer"> 
+        select * from basic_customer where id = #{id}
+    </select>
+    <insert id="insert" parameterType="Customer" useGeneratedKeys="true" keyProperty="id">
+    	insert into basic_customer (name, age) values(#{name}, #{age})
+    </insert>
+    <update id="update" parameterType="Customer">
+    	update basic_customer set name=#{name}, age=#{age} where id=#{id}
+    </update>
+    <delete id="delete" parameterType="java.lang.Long">
+    	delete from basic_customer where id=#{id}
+    </delete>
+    
+</mapper>

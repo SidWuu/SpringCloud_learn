@@ -1,0 +1,14 @@
+#属性和值要空一格
+#git配置文件名:wxd-config-dev,/{wxd-config}/{dev}/{master}
+#访问地址为……:8020/{application}/{profile}[/{label}]
+server:
+  port: 8020
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://git.oschina.net/sidwu/springcloudconfig-repo.git
+          search-paths: config-repo
+          #username: 
+          #password: 
